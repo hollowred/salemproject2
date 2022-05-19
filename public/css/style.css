@@ -18,9 +18,9 @@ img{
 
 button, input{
   padding: 1em;
-  border: 4px black solid;
-font-weight: bold;
-margin: .2em;
+  border: 2px black solid;
+  font-weight: bold;
+  margin: .2em;
 }
 
 h1{
@@ -28,6 +28,7 @@ h1{
   background-color: #0D3378;
   width: fit-content;
   font-family: 'Koulen';
+  border: 4px black solid;
 }
 h3{
   color: #71D1DE;
