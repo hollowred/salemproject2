@@ -11,12 +11,13 @@
         <form action="/animals/<%=data.id%>?_method=PUT" method="POST">
             Name: <input type="text" name="name" value="<%=data.name%>"/> <br/>
             Species: <input type="text" name="species" value="<%=data.species%>"/> <br/>
+            img: <input type="text" name="img" value="<%=data.img%>"/><br/><br/>
             description: <input type="text" name="description" value="<%=data.description%>"/> <br/>
             <input type="submit" value="Submit Changes" />
           </form>
           <a href="/">
             <button> Animal Planet</button>
-          </a>  
+          </a>
     </div>
   </body>
 </html>

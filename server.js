@@ -49,11 +49,11 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 //seed data
-app.get('/animals/seed', (req, res) => {
+app.get('/seed', (req, res) => {
   Data.create(seed, (err, createData) => {
       console.log('seed data registered!')
   })
-  res.redirect('/animals')
+  res.redirect('/')
 })
 
 //___________________
@@ -92,7 +92,7 @@ app.get('/animals/new', (req, res) => {
  //POST
  app.post('/animals', (req, res) => {
    Data.create(req.body, (error, createdAnimal) => {
-     res.redirect('/animals')
+     res.redirect('/')
    })
  })
 
@@ -101,7 +101,7 @@ app.put('/animals/:id', (req, res)=>{
     Data.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
           // console.log(req.body)
           // res.send(updatedModel);
-        res.redirect('/animals');
+        res.redirect('/');
       });
   });
 
@@ -109,7 +109,7 @@ app.put('/animals/:id', (req, res)=>{
   // DESTROY => DELETE
   app.delete('/animals/:id', (req, res) => {
       Data.findByIdAndRemove(req.params.id, (err, data)=> {
-          res.redirect('/Animals');
+          res.redirect('/');
       });
   });
 
