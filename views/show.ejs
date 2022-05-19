@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="showCharacter">
+      <img src="<%=list.img%>"/>
+      <h3>Name: <%=list.name%></h3>
+      <h3>Species: <%=list.species%></h3>
+      <h3><%=list.description%></h3>
+
+      <form action="/animals" method="GET">
+      <button type="submit" href="/animals" >Animal Planet</button>
+      </form>
+  </div>
+  </body>
+</html>

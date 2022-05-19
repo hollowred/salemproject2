@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+        <h1>edit page</h1>
+        <form action="/animals/<%=data.id%>?_method=PUT" method="POST">
+            Name: <input type="text" name="name" value="<%=data.name%>"/> <br/>
+            Species: <input type="text" name="species" value="<%=data.species%>"/> <br/>
+            description: <input type="text" name="description" value="<%=data.description%>"/> <br/>
+            <input type="submit" value="Submit Changes" />
+            <form action="/animals" method="GET">
+            <button type="submit" href="/animals" > Animal Planet</button>
+            </form>
+
+        </form>
+    </div>
+  </body>
+</html>

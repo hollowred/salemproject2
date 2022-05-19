@@ -7,6 +7,9 @@ const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()
+
+const Data = require('./models/anischema.js')
+const seed = require('./models/animal.js')
 //___________________
 //Port
 //___________________
@@ -45,9 +48,71 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
+//seed data
+app.get('/animals/seed', (req, res) => {
+  Data.create(seed, (err, createData) => {
+      console.log('seed data registered!')
+  })
+  res.redirect('/animals')
+})
 
 //___________________
 // Routes
+//EDIT => GET
+app.get('/animals/:id/edit', (req, res) => {
+    Data.findById(req.params.id, (err, mammalMan) => {
+        res.render('edit.ejs', {
+            data : mammalMan
+        });
+    });
+});
+
+//INDEX
+app.get('/animals', (req, res) => {
+  Data.find({}, (error, aminals) => {
+    res.render('index.ejs',{
+      data: aminals
+    })
+  })
+})
+
+//NEW
+app.get('/animals/new', (req, res) => {
+    res.render('new.ejs');
+})
+
+//SHOW
+ app.get('/animals/:id', (req, res) => {
+ Data.findById(req.params.id, (error, character) => {
+     res.render('show.ejs',
+     {list: character})
+   })
+ })
+
+ //POST
+ app.post('/animals', (req, res) => {
+   Data.create(req.body, (error, createdAnimal) => {
+     res.redirect('/animals')
+   })
+ })
+
+// UPDATE => PUT
+app.put('/animals/:id', (req, res)=>{
+    Data.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+          // console.log(req.body)
+          // res.send(updatedModel);
+        res.redirect('/animals');
+      });
+  });
+
+
+  // DESTROY => DELETE
+  app.delete('/animals/:id', (req, res) => {
+      Data.findByIdAndRemove(req.params.id, (err, data)=> {
+          res.redirect('/Animals');
+      });
+  });
+
 //___________________
 //localhost:3000
 app.get('/' , (req, res) => {
