@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Lobster&family=Roboto:wght@300&family=Sarina&family=Zen+Loop&display=swap');
+
+
 body {
   background-color: #6C99EB;
   margin-left: 4em;
+  font-family: 'Zen Loop';
+  font-size: 32px;
 }
 
 img{
@@ -11,14 +16,30 @@ img{
     height: 500px;
 }
 
+button, input{
+  padding: 1em;
+  border: 4px black solid;
+font-weight: bold;
+margin: .2em;
+}
+
 h1{
   color: #72D3DF;
-  background-color: #71C3F5;
-
-
-
+  background-color: #0D3378;
+  width: fit-content;
+  font-family: 'Koulen';
+}
+h3{
+  color: #71D1DE;
+  background-color: #466AAB;
+  width: fit-content;
 }
 
 li{
     list-style: none;
+}
+
+.buttons{
+  display: flex;
+  justify-content: flex-start;
 }
