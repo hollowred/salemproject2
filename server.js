@@ -68,7 +68,7 @@ app.get('/animals/:id/edit', (req, res) => {
 });
 
 //INDEX
-app.get('/animals', (req, res) => {
+app.get('/', (req, res) => {
   Data.find({}, (error, aminals) => {
     res.render('index.ejs',{
       data: aminals
